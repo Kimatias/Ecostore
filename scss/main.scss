@@ -291,4 +291,12 @@ footer {
             object-fit: cover;
         }
     }
+
+    .about-us .mission-section {
+        @include flexCenter(column, center, center);
+    }
+
+    .about-us .mission-section .earth {
+        display: block;
+    }
 }

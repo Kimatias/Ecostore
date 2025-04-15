@@ -272,4 +272,14 @@ footer .social-media {
     -o-object-fit: cover;
        object-fit: cover;
   }
+  .about-us .mission-section {
+    /*Este mixin recibirá argumentos como una función*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .about-us .mission-section .earth, .about-us .mission-section .innovation {
+    display: block;
+  }
 }/*# sourceMappingURL=main.css.map */
