@@ -31,6 +31,12 @@ nav .icons button {
   background: none;
   border-style: none;
 }
+nav button:hover {
+  cursor: pointer;
+}
+nav .menu {
+  display: none;
+}
 
 article {
   width: auto;
@@ -79,6 +85,7 @@ article button {
 article button:hover { /*Para que es es ampersant?*/
   transform: scale(1.1);
   transition-duration: 300ms;
+  cursor: pointer;
 }
 article img {
   width: 25vw;
@@ -98,7 +105,7 @@ section .healthcare, section .furniture {
   padding-bottom: 60px;
 }
 section .healthcare h2, section .furniture h2 {
-  font-weight: 300;
+  font-weight: 400;
   padding-bottom: 60px;
 }
 section .healthcare .card-section, section .furniture .card-section {
@@ -116,8 +123,9 @@ section .healthcare .card-section, section .furniture .card-section {
 }
 section .healthcare .product-card, section .furniture .product-card { /*Esta sección debe estar tabulada al mismo nivel de .healtcare para poder usar @extend en .furniture*/
   width: 16vw;
-  min-width: 280px;
+  min-width: 300px;
   height: 45vh;
+  min-height: 380px;
   background-color: #FFDAC6;
   color: #7C6A0A;
   padding: 20px;
@@ -134,6 +142,10 @@ section .healthcare .product-card .icon svg, section .furniture .product-card .i
   height: 28px;
   stroke: #7C6A0A;
   stroke-width: 2;
+}
+section .healthcare .product-card .icon svg:hover, section .furniture .product-card .icon svg:hover {
+  fill: #7C6A0A;
+  cursor: pointer;
 }
 section .healthcare .product-card .product-image, section .furniture .product-card .product-image {
   width: 100%;
@@ -156,23 +168,27 @@ section .furniture .product-card {
 section .furniture .product-card path {
   stroke: white;
 }
+section .furniture .product-card path:hover {
+  fill: white;
+  cursor: pointer;
+}
 
 .about-us {
   padding-bottom: 60px;
 }
 .about-us h2 {
-  font-weight: bold;
+  font-weight: 500;
   padding-bottom: 60px;
 }
 .about-us .mission-section {
   /*Este mixin recibirá argumentos como una función*/
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
 }
 .about-us .mission-section .earth, .about-us .mission-section .innovation {
-  width: 30vw;
+  width: 45%;
   display: flex;
   gap: 40px;
   color: #E86424;
@@ -188,6 +204,7 @@ section .furniture .product-card path {
 .gallery h2 {
   color: #7C6A0A;
   font-size: 2em;
+  font-weight: 500;
 }
 .gallery .gallery-images {
   /*Este mixin recibirá argumentos como una función*/
@@ -203,11 +220,12 @@ section .furniture .product-card path {
      object-fit: cover;
   -o-object-position: 5px 35%;
      object-position: 5px 35%; /*mueve la imagen 35% hacia arriba BUSCAR MAS SOBRE ESTA*/
-  border-radius: 16px;
+  border-radius: 15px;
 }
 .gallery .gallery-images img:hover { /*Para que es es ampersant?*/
   transform: scale(1.1);
   transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
 }
 
 .location {
@@ -215,6 +233,8 @@ section .furniture .product-card path {
 }
 .location h2 {
   padding: 60px 0px;
+  font-weight: 400;
+  font-size: 2em;
 }
 .location .map {
   /*Este mixin recibirá argumentos como una función*/
@@ -225,10 +245,12 @@ section .furniture .product-card path {
   padding-bottom: 50px;
 }
 .location .map iframe {
+  width: 100%;
   border-radius: 20px;
 }
 .location h3 {
   font-size: 1.5em;
+  font-weight: 400;
 }
 .location p {
   font-size: 1.5em;
@@ -252,19 +274,33 @@ footer .social-media {
 }
 
 @media (max-width: 704px) {
+  nav .menu {
+    display: block;
+  }
+  .profile, .wishlist, .cart {
+    display: none;
+  }
   article {
     /*Este mixin recibirá argumentos como una función*/
     display: flex;
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
-    gap: 50px;
+    gap: 25px;
+  }
+  article .info-impact {
+    /*Este mixin recibirá argumentos como una función*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   article h1 {
-    font-size: 2.2em;
+    font-size: 2em;
   }
   article p {
-    font-size: 1.2em;
+    font-size: 1.1em;
+    text-align: justify;
   }
   article img {
     width: 60vw;
@@ -272,14 +308,35 @@ footer .social-media {
     -o-object-fit: cover;
        object-fit: cover;
   }
+  section .healthcare .card-section, section .furniture .card-section {
+    width: 100%;
+    height: auto;
+    gap: 20px;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+  }
+  section {
+    padding: 30px;
+  }
   .about-us .mission-section {
     /*Este mixin recibirá argumentos como una función*/
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 25px;
   }
   .about-us .mission-section .earth, .about-us .mission-section .innovation {
-    display: block;
+    /*Este mixin recibirá argumentos como una función*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  .about-us .mission-section .earth img, .about-us .mission-section .innovation img {
+    width: 150px;
   }
 }/*# sourceMappingURL=main.css.map */
